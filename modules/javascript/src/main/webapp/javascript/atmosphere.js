@@ -38,7 +38,7 @@
 
     "use strict";
 
-    var version = "2.2.13-pathmate1-javascript",
+    var version = "2.2.13-pathmate3-javascript",
         atmosphere = {},
         guid,
         offline = false,
