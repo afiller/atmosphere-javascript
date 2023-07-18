@@ -96,7 +96,7 @@
     };
 
     jQuery.atmosphere = {
-        version: "2.2.13-pathmate4-jquery",
+        version: "2.2.13-pathmate-004-jquery",
         uuid: 0,
         offline: false,
         requests: [],
