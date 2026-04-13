@@ -49,4 +49,18 @@ find "$DIR" -name "pom.xml" -print | while read -r POM; do
 	fi
 done
 
+# Reset version in atmosphere.js and jquery.atmosphere.js
+ATMOSPHERE_JS="${DIR}/modules/javascript/src/main/webapp/javascript/atmosphere.js"
+JQUERY_ATMOSPHERE_JS="${DIR}/modules/jquery/src/main/webapp/jquery/jquery.atmosphere.js"
+
+if [ -f "${ATMOSPHERE_JS}" ]; then
+	sed -i '' "s|[0-9][0-9.]*-pathmate-[^\"]*-javascript|${VERSION_BASE}-javascript|g" "${ATMOSPHERE_JS}"
+	echo "  Cleared: ${ATMOSPHERE_JS}"
+fi
+
+if [ -f "${JQUERY_ATMOSPHERE_JS}" ]; then
+	sed -i '' "s|[0-9][0-9.]*-pathmate-[^\"]*-jquery|${VERSION_BASE}-jquery|g" "${JQUERY_ATMOSPHERE_JS}"
+	echo "  Cleared: ${JQUERY_ATMOSPHERE_JS}"
+fi
+
 echo "Done."

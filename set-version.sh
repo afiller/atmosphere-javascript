@@ -53,4 +53,18 @@ find "$DIR" -name "pom.xml" -print | while read -r POM; do
 	fi
 done
 
+# Update version in atmosphere.js and jquery.atmosphere.js
+ATMOSPHERE_JS="${DIR}/modules/javascript/src/main/webapp/javascript/atmosphere.js"
+JQUERY_ATMOSPHERE_JS="${DIR}/modules/jquery/src/main/webapp/jquery/jquery.atmosphere.js"
+
+if [ -f "${ATMOSPHERE_JS}" ]; then
+	sed -i '' "s|[0-9][0-9.]*-pathmate-[^\"]*-javascript|${VERSION}-javascript|g" "${ATMOSPHERE_JS}"
+	echo "  Updated: ${ATMOSPHERE_JS}"
+fi
+
+if [ -f "${JQUERY_ATMOSPHERE_JS}" ]; then
+	sed -i '' "s|[0-9][0-9.]*-pathmate-[^\"]*-jquery|${VERSION}-jquery|g" "${JQUERY_ATMOSPHERE_JS}"
+	echo "  Updated: ${JQUERY_ATMOSPHERE_JS}"
+fi
+
 echo "Done."
